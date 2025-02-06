@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Page</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&family=Jost:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+  <style>
+    /* .main-home{
+      margin-top: 64px;
+      height: 90vh;
+    } */
+    .formbold-mb-5 {
+      margin-bottom: 20px;
+    }
+
+    .formbold-pt-3 {
+      padding-top: 12px;
+    }
+
+    .formbold-main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      width: 100%;
+    }
+
+    .formbold-form-wrapper {
+      margin: 0 auto;
+      max-width: 550px;
+      width: 100%;
+      background: #eceffc;
+    }
+
+
+
+    .formbold-form-label-2 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .formbold-form-input {
+      width: 100%;
+      padding: 12px 24px;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      background: white;
+      font-weight: 500;
+      font-size: 16px;
+      color: #6b7280;
+      outline: none;
+      resize: none;
+      margin: 8px;
+    }
+
+    .formbold-form-input:focus {
+      border-color: #6a64f1;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .formbold-btn {
+      text-align: center;
+      font-size: 16px;
+      border-radius: 6px;
+      padding: 14px 32px;
+      border: none;
+      font-weight: 600;
+      background-color: #6a64f1;
+      color: white;
+      cursor: pointer;
+    }
+
+    .formbold-btn:hover {
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .formbold--mx-3 {
+      margin-left: -12px;
+      margin-right: -12px;
+    }
+
+    .formbold-px-3 {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .formbold-file-input input {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 34%;
+
+    }
+
+    .formbold-file-input label {
+      position: relative;
+      border: 1px dashed #e0e0e0;
+      border-radius: 6px;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .formbold-drop-file {
+      display: block;
+      font-weight: 600;
+      color: #07074d;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .formbold-or {
+      font-weight: 500;
+      font-size: 16px;
+      color: #6b7280;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .formbold-browse {
+      font-weight: 500;
+      font-size: 16px;
+      color: #07074d;
+      display: inline-block;
+      padding: 8px 28px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+
+    .formbold-file-list {
+      border-radius: 6px;
+      background: #f5f7fb;
+      padding: 16px 32px;
+    }
+
+    .formbold-file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .formbold-file-item button {
+      color: #07074d;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+
+
+    @media (min-width: 540px) {
+      .sm\:w-half {
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body style="background-color: #93ea9b;">
+  <header >
+    <a href="/"><img src="./css/logo1.jpg" alt="logo" id="logo" /></a>
+
+    <ul  class="nav-menu">
+      <li><a  href="#home">Home</a></li>
+      <li><a href="#addProduct">Add Products</a></li>
+      <li><a href="#product">Your Products</a></li>
+
+      <!-- <li><a href="#">Docs</a></li> -->
+    </ul>
+  
+    <div class="navicon">
+      <a alt><i class="bx bx-user user-dropdown-trigger"></i></a>
+
+
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+    </form>
+    <div class="user-dropdown">
+      <!-- Content of the user dropdown menu goes here -->
+      <ul class="dropdown">
+        <li><a href="/loginUser" class="under"><span id="ecommerceUser"></span></a></li>
+
+        <li id="logout"><a href="/" style="cursor: pointer;">Logout</a></li>
+        <li><a href="/loginUser" class="under">userLogin</a></li>
+      </ul>
+    </div>
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </header>
+
+  <section class="main-home" style=" background-image: url(./css/result.jpg);">
+    
+    <div class="main-text">
+      <h3 style="color: #1e57ba;">Local Farmers</h3>
+      <h1 style="font-size: 47px; color: rgb(14, 176, 152);">Farming is not just a job <br />It's a way of life!!!</h1>
+      <p style="color: #e0e0e0;">Organic Farming</p>
+    </div>
+  </section>
+  <div class="formbold-main-wrapper" id="addProduct" style="font-family: Inter, sans-serif;">
+    <div class="formbold-form-wrapper">
+      <form action="vendorSection" method="post" enctype="multipart/form-data" style=" background-color:#6b7280;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding: 18px;">
+        <div class="formbold-mb-5">
+
+          <div class="center-text">
+            <h2>Add Your <span style="color: #043521;">Products</span></h2>
+          </div>
+         
+          <div class="mb-6 pt-4">
+            <label  class="formbold-form-label formbold-form-label-2">
+              Upload Product Picture
+            </label>
+
+            <div class="formbold-mb-5 formbold-file-input">
+              <label for="file" id="file">
+                <div>
+                  <span class="formbold-drop-file"> Drop here </span>
+                  <span class="formbold-or"> Or </span>
+                  <input type="file" name="avatar" id="pPhoto" required onchange="displayImage()" />
+                  <span style="background-color: #07925b;" class="formbold-browse"> Browse </span>
+                </div>
+              </label>
+            </div>
+
+            <div id="imagePreview" class="formbold-mb-5" style="display: none; text-align: center; justify-content: center; align-items: center; gap: 15px;">
+              <!-- Display the uploaded image here -->
+              <img id="preview" src="#" alt="Product Photo" style="max-width: 100%; max-height: 200px; display: none; border: 1px solid #ccc; margin-bottom: 10px;" />
+              <input type="button" onclick="changePhoto()" value="Change Photo" style="background-color: #4CAF50; color: #fff; padding: 8px 16px; cursor: pointer; border: none; border-radius: 4px;" />
+              
+            </div>
+
+          </div>
+
+
+          <input type="hidden" value="" id="autoEmail" name="email">
+
+          <input type="text" name="productName" id="pName" placeholder="Enter Product Name" required class="formbold-form-input" />
+
+          <!--<select name="gender" id="gender" class="formbold-form-input">
+            <option value="" disabled selected>state</option>
+            <option value="male"></option>
+            <option value="female"></option>
+            <option value="other"></option>
+          </select>-->
+
+
+
+          <input type="number" name="productQuantity" id="pQuantity" required placeholder="Enter Product Quantity" class="formbold-form-input" />
+
+          <input type="number" name="productCost" id="pCost" placeholder="Enter Product Cost(IN Rupees) " class="formbold-form-input" required />
+          <input type="text" name="productDesc" id="pDesc" placeholder="Enter Product Description" required class="formbold-form-input" />
+        </div>
+
+
+        <button style="background-color: #10c28c;" name="submit" id="submit" onclick="submitForm(event)" class="formbold-btn w-full">Send File</button>
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+  <section class="trending-product" id="product">
+    <div class="center-text">
+      <h2> Your <span style="color: #10c28c;">Products</span></h2>
+    </div>
+
+    <div class="products">
+      <% records.forEach(function(image) { %>
+      <div class="row">
+        <img src="data:image/<%=image.img.contentType%>;base64,
+          <%=image.img.data.toString('base64')%>">
+
+        <div style="display: flex; justify-content: space-between; align-items: end;">
+
+          <div class="price">
+            <h5 class="productNameForSearching"><%= image.productName %></h5>
+            <h5>Quantity : <%= image.productQuantity %></h5>
+            <p><i class="bx bx-rupee"></i><%= image.productCost %></p>
+          </div>
+          <form action="deleteProduct" method="post" onsubmit="return fillEmailIntoDelete()">
+            <input type="hidden" value="<%= image._id%>" name="productId">
+            <input type="hidden" value="" name="vendorDeleteEmail" id="vendorDeleteEmail">
+
+
+            <div class="btn">
+              <style>
+                .add-to-cart-button:hover {
+                  background-color: #dd1919 !important;
+                }
+              </style>
+              <button class="add-to-cart-button" style="background-color: #eb3939;">
+                <i class='bx bx-trash'></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+  </section>
+  <div style="background-color:#d8ddf1 ;">
+
+    <%- include('./partials/footer'); %>
+  </div>
+  <!-- ---------------JS---------------------------------------------------------------- -->
+
+
+
+
+  <script src="/./js/vendor.js"></script>
+</body>
+
+</html>
+<!-- #d8ddf1----- background color for footer
+------#e0e6ff---------------------for header -->

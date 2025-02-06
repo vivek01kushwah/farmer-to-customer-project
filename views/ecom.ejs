@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Portal F2C Interaction</title>
+  <link rel="stylesheet" href="/./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+</head>
+
+<body onload="loadUserName()">
+
+  <%- include('./partials/header'); %>
+  <section class="main-home" id="backgroundContainer">
+    <div class="main-text">
+      <h5>Fresh Vegetables </h5>
+      <h1>Fresh Vegetables <br />Low Cost </h1>
+      <p>There is Nothing like Intermediate Vendor</p>
+    </div>
+    <div class="down-arrow">
+      <a href="#trending" class="down"><i class="bx bx-down-arrow-alt"></i></a>
+    </div>
+  </section>
+
+  
+  <section style="background-color: aquamarine;" class="trending-product" id="product">
+    <div class="center-text">
+      <h2>Our Top Selling <span>Product</span></h2>
+    </div>
+    <style>
+
+
+
+
+    </style>
+    <div  class="products">
+      <% records.forEach(function(image) { %>
+      <div class="row">
+        <img src="data:image/<%=image.img.contentType%>;base64,
+            <%=image.img.data.toString('base64')%>">
+        <div class="product-text">
+          <h5>Sale</h5>
+        </div>
+        <div class="heart-icon"><i class="bx bx-heart heart" data-product-id="<%= image._id %>" onclick="addToWishlist('<%= image._id %>')"></i></div>
+        <div class="rating">
+          <i class="bx bx-star "></i><span> <a href="/review/<%= image._id %> " style="color: #8537cd; text-decoration: none;"> Review</a> </span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: end;">
+
+          <div class="price">
+            <h5 class="productNameForSearching"><%= image.productName %>|<%= image.gender%></h5>
+            <h5>Quantity : <%= image.productQuantity %></h5>
+            <p><i class="bx bx-rupee"></i><%= image.productCost %></p>
+          </div>
+         
+          <div class="btn">
+            <button class="add-to-cart-button" cart-product-id="<%= image._id %>" onclick="addToCart('<%= image._id %>')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+  </section>
+  
+  <div style="background-color: #f3f4f6;">
+
+  
+
+    <%- include('./partials/footer'); %>
+  </div>
+  <div class="end-text">Copyright © @2024 SCIS. All Rights Reserved.</div>
+  <script src="./js/ecommerce.js"></script>
+
+</body>
+
+</html>

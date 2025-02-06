@@ -1,0 +1,155 @@
+/* .container{
+    background-color:rgba(73, 172, 175, 0.973);
+}
+#container{
+    border: 2px solid red;
+    border-radius: 20px;
+    margin:100px 300px;
+    padding:30px 30px;
+}
+#email{
+    width:600px;
+    height:35px;
+    border-radius: 20px;
+    border-color: rgb(191, 60, 37);
+}
+#password{
+    width:600px;
+    height:35px;
+    border-radius:20px;
+    border-color: rgb(191, 60, 37);
+}
+#btn{
+    margin:0px 200px;
+    width:250px;
+    height:35px;
+    border-radius: 20px;
+    border-color: rgb(191, 60, 37);
+}
+#link{
+   color:rgb(225, 52, 18);
+    
+}
+#heading{
+    font-size: larger;
+    font-style: oblique;
+} */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    background-image: url(./login.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    max-width: 400px;
+    width: 400px; /* Ensures form stays at a fixed size */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#link {
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+#link:hover {
+    text-decoration: underline;
+}
+
+.or-divider {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #777;
+}
+
+.google-btn {
+    width: 179px;
+    height: 42px;
+    margin: auto;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.google-icon {
+    margin-top: 8px;
+    width: 23px;
+    height: 22px;
+}
+
+.btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+}
+
+.google-btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+}
+
+.google-btn:active {
+    background: #1669F2;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+@media (max-width: 394px) {
+    #container {
+        width: 90%; /* Allowing it to shrink to 90% of the screen width */
+    }
+}

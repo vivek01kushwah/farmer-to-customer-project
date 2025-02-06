@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address</title>
+    <link rel="stylesheet" href="./css/productAddress&Cart.css">
+    <script src="./js/productAddress&Cart.js"></script>
+
+</head>
+
+<body onload="myUsernameFunction()">
+    
+
+    <div class="maindiv">
+        <h2 class="myclass" id="user">username</h2>
+        <h1>
+            <center>WELCOME TO YOUR CART</center>
+        </h1>
+
+
+        <div class="imageDiv">
+            <% records.forEach(function(doc) { %>
+                <div>
+                    <div class="column">
+                        <img src="data:doc/<%=doc.img.contentType%>;base64,
+                 <%=doc.img.data.toString('base64')%>">
+                        <div class="productDescription">
+                            <h5>
+                                <%= doc.productName %>
+                            </h5>
+                            <p>Quantity Remainder : <%= doc.productQuantity %>
+                            </p>
+                            <label for="">Cost :</label>
+                            ₹ <p>
+                                <%= doc.productCost %>
+                            </p>
+                            <input type="hidden" value="<%= doc.productCost %>" class="costOfProduct">
+                            <!-- TO DELETE PRODUCT -->
+                            <form action="/deleteFromAddToCart" method="post">
+                                <input type="hidden" value="" name="usernameForAddToCart" class="usernameForAddToCart">
+                                <input type="hidden" value="<%= doc._id %>" name="productIdForAddToCart">
+
+                                <center><input type="submit" id="deleteProduct"  value="Remove " class="removeButton"></center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <% }) %>
+        </div><br><br>
+        <div class="myclass">
+
+            
+                <h2 id="fullCost">cost:</h2>
+            <br>
+            <form action="/actualAddress" method="post">
+                <input type="hidden" id="price" name="price">
+                <input type="submit" value="buy now" name="" class="button">
+            </form><br><br><br>
+            <a href="http://localhost:3000"><b>go to home</b></a>
+        </div> 
+</body>
+
+</html>

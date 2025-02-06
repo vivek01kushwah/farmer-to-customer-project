@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <link rel="stylesheet" href="./css/loginUser.css">
+
+</head>
+
+<body>
+  <div id="container">
+    <h2 id="heading">
+      <center>Login Details</center>
+    </h2>
+    <form action="/signin" method="post" name="loginForm" onsubmit="return formValidation()">
+      <label for="email">Enter Your Email</label><br>
+      <input type="text" name="email" id="email" required><br><br>
+
+      <label for="password">Enter Your Password</label><br>
+      <input type="password" name="password" id="password" required><br><br>
+
+      <input type="submit" name="submit" id="btn" required >
+      <div class="or-divider">OR</div>
+      <div class="google-btn">
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="./css/google.png"/>
+        </div>
+        <a class="btn-text" href="/google" style="text-decoration: none;"><b>Sign in with google</b></a>
+      </div>
+      <a href="/signUpUser" id="link">New User Register</a>
+
+
+  </div>
+  
+  </form>
+
+</body>
+<script>
+  function formValidation() {
+    let email = document.forms["loginForm"]["email"].value;
+    const username = sessionStorage.setItem("username", email);
+    if (email == "") {
+      alert("Enter the Email");
+      document.forms["loginForm"]["email"].focus();
+      return false;
+    }
+    let password = document.forms["loginForm"]["password"].value;
+    if (password == "") {
+      alert("Enter Password");
+      document.forms["loginForm"]["password"].focus();
+      return false;
+    }
+  }
+</script>
+
+</html>

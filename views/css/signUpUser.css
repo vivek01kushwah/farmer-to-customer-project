@@ -1,0 +1,309 @@
+/* .container{
+    background-color:rgb(209, 126, 38)
+}
+.container{
+border:2px solid blueviolet;
+width:fit-content;
+height:400px;
+margin:40px 400px;
+padding:20px 20px 30px 40px;
+border-radius:20px;
+} 
+.container form input{
+width:500px;
+height:30px;
+border-radius: 20px;
+}
+
+#sbt{
+width:200px;
+height:30px;
+background-color:green;
+margin:0px 140px;
+} */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+   
+    background-image: url("./toy-shopping-cart-with-boxes-credit-card-with-copy-space_339191-197.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .container {
+    background-color: #fff;
+    width: 80%;
+    max-width: 400px;
+    
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 80px auto 0 100px;
+    
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    text-align: center;
+  }
+  
+  input[type="email"],
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 90%;
+    }
+  
+    input[type="email"],
+    input[type="text"],
+    input[type="password"] {
+      margin: 5px 0;
+    }
+  }
+   */
+   @font-face {
+    font-family: "Poppins-Regular";
+    src: url("../fonts/poppins/Poppins-Regular.ttf");
+  }
+  @font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("../fonts/poppins/Poppins-SemiBold.ttf");
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins-Regular";
+    color: #333;
+    font-size: 13px;
+    margin: 0;
+  }
+  
+  input,
+  textarea,
+  select,
+  button {
+    font-family: "Poppins-Regular";
+    color: #a31e1e;
+    font-size: 13px;
+  }
+  
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul {
+    margin: 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  :focus {
+    outline: none;
+  }
+  
+  .wrapper {
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+  }
+  
+  .inner {
+    padding: 20px;
+    background: #fff;
+    max-width: 850px;
+    margin: auto;
+    display: flex;
+  }
+  .inner .image-holder {
+    width: 50%;
+  }
+  .inner form {
+    width: 50%;
+    padding-top: 36px;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  .inner h3 {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: "Poppins-SemiBold";
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  
+  .form-group {
+    display: flex;
+  }
+  .form-group input {
+    width: 50%;
+  }
+  .form-group input:first-child {
+    margin-right: 25px;
+  }
+  
+  .form-wrapper {
+    position: relative;
+  }
+  .form-wrapper i {
+    position: absolute;
+    bottom: 9px;
+    right: 0;
+  }
+  
+  .form-control {
+    border: 1px solid #333;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    display: block;
+    width: 100%;
+    height: 30px;
+    padding: 0;
+    margin-bottom: 25px;
+  }
+  
+  select {
+    cursor: pointer;
+    padding-left: 20px;
+  }
+  select option[value=""][disabled] {
+    display: none;
+  }
+  
+  button {
+    border: none;
+    width: 164px;
+    height: 51px;
+    margin: auto;
+    margin-top: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #333;
+    font-size: 15px;
+    color: #fff;
+    vertical-align: middle;
+  
+    transform: perspective(1px) translateZ(0);
+  
+    transition-duration: 0.3s;
+  }
+  button i {
+    margin-left: 10px;
+  
+    transform: translateZ(0);
+  }
+  button:hover i,
+  button:focus i,
+  button:active i {
+    animation-name: hvr-icon-wobble-horizontal;
+  
+    animation-duration: 1s;
+  
+    animation-timing-function: ease-in-out;
+  
+    animation-iteration-count: 1;
+    animation: hvr-icon-wobble-horizontalvr 1s ease-in-out 0 1;
+  }
+  .card-info a {
+    display: block;
+    color: #6658d3;
+    text-decoration: none;
+    text-align: center;
+    margin: 11px;
+}
+  
+  @keyframes hvr-icon-wobble-horizontal {
+    16.65% {
+      transform: translateX(6px);
+    }
+    33.3% {
+      transform: translateX(-5px);
+    }
+    49.95% {
+      transform: translateX(4px);
+    }
+    66.6% {
+      transform: translateX(-2px);
+    }
+    83.25% {
+      transform: translateX(1px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @media (max-width: 1199px) {
+    .wrapper {
+      background-position: right center;
+    }
+  }
+  @media (max-width: 991px) {
+    .inner form {
+      padding-top: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+  @media (max-width: 767px) {
+    .inner {
+      display: block;
+    }
+    .inner .image-holder {
+      width: 100%;
+    }
+    .inner form {
+      width: 100%;
+      padding: 40px 0 30px;
+    }
+  
+    button {
+      margin-top: 60px;
+    }
+  }
+  

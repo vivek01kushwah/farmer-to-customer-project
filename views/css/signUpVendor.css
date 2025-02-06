@@ -1,0 +1,23 @@
+.container{
+    background-color:rgb(169, 73, 73)
+}
+.container{
+border:2px solid blueviolet;
+width:fit-content;
+height:600px;
+margin:40px 400px;
+padding:20px 20px 30px 40px;
+border-radius:20px;
+} 
+.container form input{
+width:500px;
+height:30px;
+border-radius: 20px;
+}
+
+#sbt{
+width:200px;
+height:30px;
+background-color:rgb(56, 131, 56);
+margin:0px 140px;
+}

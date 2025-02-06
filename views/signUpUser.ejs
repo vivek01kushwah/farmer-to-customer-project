@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>signup form</title>
+    <link rel="stylesheet" href="./css/signUpUser.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1><center>Register Yourself</center></h1>
+      <form
+        action="/signUpUser"
+        name="signup"
+        onsubmit="return vaidatilonSignUp()"
+        method="POST"
+      >
+        Enter Your Email: <br /><input
+          type="email"
+          name="email"
+          id="eml"
+          required
+        /><br /><br />
+        Enter Your Name: <br />
+        <input type="text" name="name" id="nm" required/><br /><br />
+        Enter Your Password: <br />
+        <input type="password" name="password" id="pwd" required /><br /><br />
+        Confirm Password: <br />
+        <input type="password" name="confirmpassword" id="cpwd" required /><br /><br />
+        <button type="submit" id="sbt">sign up</button>
+      </form>
+    </div>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>RegistrationForm_v1 by Colorlib</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MATERIAL DESIGN ICONIC FONT -->
+  <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="./css/signUpUser.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="wrapper" style="background-image: url('./css/bg-registration-form-1.avif');">
+    <div class="inner">
+      <div class="image-holder">
+        <img src="./css/image (1).avif" alt="">
+      </div>
+      <form action="/signUp" name="signup" onsubmit="return vaidatilonSignUp()" method="POST">
+        <h3 style="color: blueviolet;">Registration Form</h3>
+        <div class="form-group">
+          <input type="text" placeholder="First Name" class="form-control" name="fName">
+          <input type="text" placeholder="Last Name" class="form-control">
+        </div>
+        <div class="form-wrapper">
+          <input type="text" name="name" id="nm" placeholder="Username" class="form-control" name="lName">
+          <i class="zmdi zmdi-account"></i>
+        </div>
+        <div class="form-wrapper">
+          <input type="text" placeholder="Email Address" name="email" id="eml" class="form-control">
+          <i class="zmdi zmdi-email"></i>
+        </div>
+        <div class="form-wrapper">
+          <select name="gender" id="gender" class="form-control">
+            <option value="" disabled selected>Gender</option>
+            <option value="male">Male</option>
+            <option value="femal">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+        </div>
+        <div class="form-wrapper">
+          <input type="password" placeholder="Password"  name="password" id="pwd"class="form-control">
+          <i class="zmdi zmdi-lock"></i>
+        </div>
+        <div class="form-wrapper">
+          <input type="password" placeholder="Confirm Password" name="confirmpassword" id="cpwd" class="form-control">
+          <i class="zmdi zmdi-lock"></i>
+        </div>
+        <button>Register
+          <i class="zmdi zmdi-arrow-right"></i>
+        </button>
+        <div class="card-info">
+          <p><a href="/loginUser" id="link">Already have a account? Login</a></p>
+        </div>
+      </form>
+      
+    </div>
+    
+  </div>
+
+</body>
+
+</html>

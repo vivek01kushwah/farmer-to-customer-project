@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop for Vegetables</title>
+    <link rel="stylesheet" href="/./css/style.css" />
+</head>
+<body>
+    <%- include('./partials/header'); %>
+    <section class="trending-product" id="product">
+        <div class="center-text">
+          <h2>Customer <span>Shopping</span></h2>
+        </div>
+       
+        <div class="products">
+          <% records.forEach(function(image) { %>
+          <div class="row">
+            <img src="data:image/<%=image.img.contentType%>;base64,
+                <%=image.img.data.toString('base64')%>">
+            <div class="product-text">
+              <h5>Sale</h5>
+            </div>
+            <div class="heart-icon"><i class="bx bx-heart heart" data-product-id="<%= image._id %>" onclick="addToWishlist('<%= image._id %>')"></i></div>
+            <div class="rating">
+              <i class="bx bx-star "></i><span> 5(233)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: end;">
+    
+              <div class="price">
+                <h5 class="productNameForSearching"><%= image.productName %>|<%= image.gender%></h5>
+                <h5>Quantity : <%= image.productQuantity %></h5>
+                <p><i class="bx bx-rupee"></i><%= image.productCost %></p>
+              </div>
+             
+              <div class="btn">
+                <button class="add-to-cart-button" cart-product-id="<%= image._id %>" onclick="addToCart('<%= image._id %>')">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+    
+      </section>
+      <script src="./js/ecommerce.js"></script>
+</body>
+</html>

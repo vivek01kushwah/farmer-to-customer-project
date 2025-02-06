@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist</title>
+  <link rel="stylesheet" href="/./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+  
+  <% if (records.length > 0) { %>
+    <%- include('./partials/header'); %>
+  <section style="background-color: rgb(137, 193, 215);" class="trending-product" id="product" style="padding: 5%;">
+
+    <div class="center-text">
+      <h2> Your Wishlist <span style="color: #139c5c;">Products</span></h2>
+    </div>
+
+    <div class="products">
+      <% records.forEach(function(image) { %>
+      <div class="row">
+        <img src="data:image/<%=image.img.contentType%>;base64,
+              <%=image.img.data.toString('base64')%>">
+        <style>
+          .product-text {
+            position: absolute;
+            top: 13px;
+            right: 13px;
+
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 2px;
+          } 
+        </style>
+        <div class="product-text">
+          <form action="/deleteFromAddToWishlist" method="post" onsubmit=" return fillEmailIntoDelete()">
+            <input type="hidden" value="<%= image._id%>" name="productIdForAddToWishlist">
+            <input type="hidden" value="" name="usernameForAddToWishlist" id="usernameForAddToWishlist">
+
+
+            <div class="btn">
+              
+              <button class="add-to-cart-button" style="background-color: #eb3939;padding: 4px 6px">
+                <i class='bx bx-trash'></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: end;">
+
+          <div class="price">
+            <h5 class="productNameForSearching"><%= image.productName %></h5>
+            <h5>Quantity : <%= image.productQuantity %></h5>
+            <p><i class="bx bx-rupee"></i><%= image.productCost %></p>
+          </div>
+          <div class="btn">
+            <button class="add-to-cart-button" cart-product-id="<%= image._id %>" onclick="addToCart('<%= image._id %>')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+  </section>
+  <% } else { %>
+  <style>
+    .emptyWishlist {
+      height: 100vh;
+      background-image: url("/./css/wish.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      padding: 5px 34px;
+      background-color: rgb(71 178 248);
+      /* Change this to your desired background color */
+      color: #fff;
+      /* Text color */
+      font-size: 16px;
+      border: none;
+      margin-top: 33%;
+    }
+ a {
+      color: white;
+    }
+  </style>
+  <div class="emptyWishlist">
+
+
+    <button><a href="/"> Start Shopping!!</a></button>
+
+  </div>
+  <% } %>
+  <script src="/./js/ecommerce.js"></script>
+  <script>
+    const ecommerceUserName = sessionStorage.getItem("username");
+
+    function fillEmailIntoDelete() {
+      document.getElementById("usernameForAddToWishlist").value = ecommerceUserName;
+      const text = "Do you want to Delete this product";
+      if (confirm(text) == true) return true;
+      else {
+        return false;
+      }
+
+    }
+  </script>
+</body>
+
+</html>

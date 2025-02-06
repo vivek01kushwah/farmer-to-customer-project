@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>payment</title>
+  <script src="https://js.braintreegateway.com/web/dropin/1.37.0/js/dropin.min.js"></script>
+  
+
+
+  <style>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 25%;
+      height: 25%;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      background-color: antiquewhite;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 160px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #2e6fac37;
+      overflow-x: hidden;
+      padding-top: 16px;
+    }
+
+    .sidebar a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 30px;
+      color: #bb1a1a;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+
+    .main {
+      margin-left: 160px;
+      /* Same as the width of the sidenav */
+      padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+  </style>
+  <script src="./js/payment.js"></script>
+</head>
+
+<body>
+  
+  <div class="sidebar">
+
+    <!-- <a href="#home"><i class="fa fa-fw fa-home"></i><img src="https://static.vecteezy.com/system/resources/thumbnails/000/568/450/small/vector60-1781-01.jpg" alt="" width="100px" height="100px">Home</a>
+
+    <a href="#home"><i class="fa fa-fw fa-home"></i><img src="https://static.vecteezy.com/system/resources/previews/019/040/357/original/paytm-logo-icon-free-vector.jpg" alt="" width="110px" height="75px"></a>
+
+    <a href="#home"><i class="fa fa-fw fa-home"></i><img src="https://pixlok.com/wp-content/uploads/2021/02/Phonepe-SVG-Icon-300x300.jpg" width="110px" height="75px" alt=""></a>
+
+    <a href="#home"><i class="fa fa-fw fa-home"></i><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_YAmAVeVpqsQMdZOT8ELo2zvV6lRjyat2-JJGiZih&s" alt="" width="110px" height="75px"></a>
+    
+    <a href="#home"><i class="fa fa-fw fa-home"></i><img src="https://cdn-icons-png.flaticon.com/512/5968/5968209.png" alt="" width="110px" height="75px"></a>
+
+    <a href="#home"><i class="fa fa-fw fa-home"></i><img src="https://image.winudf.com/v2/image1/Y29tLmZyZWVyZWNoYXJnZXBheXNfaWNvbl8xNTc3ODIxMTkyXzA4MA/icon.png?w=184&fakeurl=1" alt="" width="110px" height="75px"></a> -->
+  
+  </div>
+  <h1>
+    <center>QR code scan and go</center>
+  </h1>
+  <center><div id="dropinContainer"></div></center>
+<center> <button id="payButton" style="width: 450px;height:35px; background-color: aqua;">Pay</button>
+</center>
+
+  <!-- <img src="http://localhost:3000/css/QR.jpg" alt="QR Code Payment" class="center">
+  <center><h2>Pay <%= price %> ₹</h2></center>
+  <center><a href="http://localhost:3000">successfull payment</a></center>-->
+  <center><p id="demo"></p></center> 
+  
+  <script>
+    var deadline = new Date("April 30, 2023 15:37:25").getTime();
+    var x = setInterval(function() {
+    var now = new Date().getTime();
+    var t = deadline - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+    document.getElementById("demo").innerHTML = days + "d " 
+    + hours + "h " + minutes + "m " + seconds + "s ";
+        if (t < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+    </script>
+
+</body>
+
+</html>

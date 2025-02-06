@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Farmer Registration</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #c71818;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      background-image: url(./css/vendor.avif);
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      height: 100vh;
+      padding-right: 30%;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      border: 1px solid #e9fe4c;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 800px;
+      width: 44%;
+      text-align: left;
+      background-color: #760530;
+      margin-right: 50px;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+    .input-field{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+   
+
+    .input-row {
+      /* display: flex; */
+      position: relative;
+      flex: 0 0 calc(49% - 20px);
+      margin: 0 4px;
+      margin-bottom: 20px;
+    }
+
+    .input-row input {
+      width: 100%;
+      /* Adjust the width as needed */
+      transition: border-color 0.3s;
+    }
+
+    .input-row label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #777;
+      pointer-events: none;
+      transition: top 0.3s, font-size 0.3s;
+    }
+
+    .input-row input:focus,
+    .input-row input:valid {
+      border-color: #4c69fe;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"] {
+      padding: 10px;
+      border: 1px solid #4c69fe;
+      border-radius: 3px;
+      background-color: #f7f7f7;
+    }
+
+    .input-row input:focus+label,
+    .input-row input:valid+label {
+      top: -17px;
+      font-size: 14px;
+      color: black;
+    }
+
+    button {
+      
+      padding: 10px 60px;
+
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* @media (max-width: 768px) {
+      .container {
+        max-width: 90%;
+      }
+    } */
+
+    @media (max-width: 480px) {
+
+      .input-row label,
+      .input-row input {
+        width: 100%;
+      }
+
+      input[type="email"],
+      input[type="text"],
+      input[type="tel"],
+      input[type="password"] {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Farmer Registration</h1>
+    <form action="/signupVendor" name="signup" onsubmit="return validationSignUp()" method="POST">
+      <div class="input-field">
+
+        <div class="input-row">
+
+          <input type="email" name="email" id="eml" required>
+          <label for="eml">Enter Your Email:</label>
+        </div>
+        <div class="input-row">
+
+          <input type="text" name="name" id="nm" required>
+          <label for="nm">Enter Your Name:</label>
+        </div>
+        <div class="input-row">
+
+          <input type="tel" name="aadhar" id="aadhar" required>
+          <label for="aadhar">Enter Your Aadhar:</label>
+        </div>
+        <div class="input-row">
+
+          <input type="text" name="city" id="city" required>
+          <label for="city">Enter Your City:</label>
+        </div>
+        <div class="input-row">
+
+          <input type="tel" name="mobile" id="mobile" required>
+          <label for="mobile">Enter Your Mobile:</label>
+        </div>
+        <div class="input-row">
+
+          <input type="password" name="password" id="pwd" required>
+          <label for="pwd">Enter Your Password:</label>
+        </div>
+        <div class="input-row">
+
+          <input type="password" name="confirmpassword" id="cpwd" required>
+          <label for="cpwd">Confirm Password:</label>
+        </div>
+        <div class="input-row">
+
+          <input type="text" name="Address" id="add" required>
+          <label for="cpwd">Enter Your Address</label>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center;">
+
+        <button type="submit" id="sbt">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

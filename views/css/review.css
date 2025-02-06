@@ -1,0 +1,25 @@
+.w-60{
+    width: 60%;
+}
+.w-25{
+    width: 25%;
+}
+.w-15{
+    width: 15%;
+}
+
+.mb-5, .my-5 {
+    margin-bottom: 0.5rem!important;
+}
+
+.h1, h1 {
+    font-size: 1.5rem;
+}
+
+.h3, h3 {
+    font-size: 1.2rem;
+}
+
+.bg-danger {
+    background-color: #007bff!important;
+}

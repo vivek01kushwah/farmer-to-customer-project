@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+  <link rel="stylesheet" href="/./css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+
+<body style="background-color: rgb(208, 220, 220);" onload="myUsernameFunction()" class="cart-body">
+  <div class="small-container cart-page ">
+
+    <% if (records.length > 0) { %>
+
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+
+        <th style="text-align: right;">Subtotal</th>
+      </tr>
+      <% records.forEach(function(doc) { %>
+      <tr class="product">
+        <td>
+
+          <div class="cart-info">
+            <img class="cart-image" src="data:doc/<%=doc.img.contentType%>;base64,
+                 <%=doc.img.data.toString('base64')%>">
+            <div>
+              <h4><%= doc.productName %></h4>
+              <p>Quantity: <%= doc.productQuantity %></p>
+
+              <input type="hidden" value="<%= doc.productCost %>" class="costOfProduct">
+              <form action="/deleteFromAddToCart" method="post">
+                <input type="hidden" value="" name="usernameForAddToCart" class="usernameForAddToCart">
+                <input type="hidden" value="<%= doc._id %>" name="productIdForAddToCart">
+
+                <button id="deleteProduct" class="removeButton"><i class='bx bx-trash delete'></i></button>
+              </form>
+            </div>
+
+
+          </div>
+        <td> <small>₹<%= doc.productCost %></small></td>
+        </td>
+        <td><input type="number" value="1" class="quantity" min="1" max="<%=doc.productQuantity
+          %>" /></td>
+        <td class="total">₹<%= doc.productCost %></td>
+      </tr>
+      <% }) %>
+    </table>
+
+    <div class="total-price">
+      <table>
+        <tr>
+          <td>Subtotal</td>
+          <td id="fullCost">₹200</td>
+        </tr>
+        <tr>
+          <td>Tax & delivery charges</td>
+          <td>₹99</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td id="totalCost"></td>
+        </tr>
+      </table>
+    </div>
+    <style>
+      .btn-container {
+        text-align: right;
+      }
+    </style>
+
+    <div class="btn-container">
+      <form  class="pay-form" >
+        <input type="hidden" id="price" name="amount" >
+        <button type="submit" name="" class="buy-button" style="background-color: rgb(21, 138, 21);">Buy Now</button>
+      </form>
+      <button href="/home" type="submit" name="" class=" buy-button" style="margin-top: 15px;background-color: rgb(66, 17, 119);"><a href="/" style="color: white;"> Continue Shopping!!</a></button>
+
+    </div>
+    <% } else { %>
+      <div class="emptyCart">
+        <img src="/./css/cart2.png" alt="">
+      <button class=" buy-button" style="margin-top: 15px;"><a href="/" style="color: white;"> Return to Shop!!</a></button>
+
+      </div>
+  <% } %>
+  </div>
+
+
+  <script src="/./js/productAddress&Cart.js"></script>
+
+</body>
+
+</html>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+
+$(document).ready(function(){
+	$('.pay-form').submit(function(e){
+		e.preventDefault();
+
+		var formData = $(this).serialize();
+
+		$.ajax({
+			url:"/productAddress/userEmail/createOrder",
+			type:"POST",
+			data: formData,
+			success:function(res){
+				if(res.success){
+					var options = {
+						"key": ""+res.key_id+"",
+						"amount": ""+res.amount+"",
+						"currency": "INR",
+						"name": ""+res.product_name+"",
+						"description": ""+res.description+"",
+						"image": "https://dummyimage.com/600x400/000/fff",
+						"order_id": ""+res.order_id+"",
+						"handler": function (response){
+              window.open("/","_self")
+							alert("Payment Succeeded");
+						},
+						"prefill": {
+							"contact":""+res.contact+"",
+							"name": ""+res.name+"",
+							"email": ""+res.email+""
+						},
+						"notes" : {
+							"description":""+res.description+""
+						},
+						"theme": {
+							"color": "#2300a3"
+						}
+					};
+					var razorpayObject = new Razorpay(options);
+					razorpayObject.on('payment.failed', function (response){
+							alert("Payment Failed");
+					});
+					razorpayObject.open();
+				}
+				else{
+					alert(res.msg);
+				}
+			}
+		})
+
+	});
+});
+
+</script>

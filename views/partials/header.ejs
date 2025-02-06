@@ -1,0 +1,134 @@
+<header>
+  <a href="/http://localhost:5000">
+    <img src="/./css/logo1.jpg" alt="logo" id="logo" />
+  </a>
+  <ul class="nav-menu">
+    <!--Add on on 06/12/2024-->
+    <style>
+      .states-menu {
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 68px; /* Adjust based on your header's height */
+        left: 73%;
+        width: 200px; /* Adjust the width of the menu */
+        max-height: 300px; /* Set a maximum height */
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        list-style-type: none;
+        margin: 0;
+        overflow-y: auto; /* Adds a vertical scrollbar when the list overflows */
+      }
+    
+      .states-menu ul {
+        padding: 0;
+        margin: 0;
+      }
+    
+      .states-menu li {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+    
+      .states-menu li:hover {
+        background-color: #f1f1f1;
+      }
+    
+      #menu-icon {
+        cursor: pointer;
+        font-size: 30px;
+        color: #333;
+      }
+    </style>
+    
+    <li><a style="color: aqua;" href="/">Home</a></li>
+    <li class="dropdown">
+      <a style="color: aqua;" href="#Products" class="dropdown-toggle">Shop for</a>
+      <ul class="dropdown-menu">
+        <li><a href="/Male"><i style="display: inline;" class='bx bx-male'></i>Vegetables</a></li>
+        <li><a href="/male"><i style="display: inline;" class='bx bx-female'></i>Fruits</a></li>
+        <li><a href="/male"><i style="display: inline;" class='bx bx-female'></i>Grains</a></li>
+        <li><a href="/male"><i style="display: inline;" class='bx bx-female'></i>Seeds</a></li>
+        <li><a href="/Male"><i style="display: inline;" class='bx bx-female'></i>Spices</a></li>
+      </ul>
+    </li>
+    <li><a style="color: aqua;" href="/#product">Products</a></li>
+    <li><a style="color: aqua;" href="#review">Review</a></li>
+  </ul>
+
+  <div class="navicon">
+    <form action="/search" method="post" id="searchForm">
+      <div class="search-box" style="background: transparent;">
+        <i class="bx bxs-microphone" id="voice-icon"></i>
+        <input type="text" id="myInput" class="search-input" placeholder="Search" name="searchTerm" />
+        <button style="border: none; background: transparent;" type="button" onclick="checkInput()"><i class="bx bx-search srchBtn" id="search-icon"></i></button>
+      </div>
+    </form>
+    <a alt><i class="bx bx-user user-dropdown-trigger"></i></a>
+    <a href="http://localhost:5000/productAddress" id="link" onclick="userLogin(event)"><i class="bx bx-cart " ></i></a>
+    <a href="http://localhost:5000/wishlist" id="link2" onclick="userLogin(event)"><i class="bx bx-heart"></i></a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+
+  <div class="user-dropdown">
+    <ul class="dropdown">
+      <li><a  href="/loginUser" class="under"><span id="ecommerceUser"></span></a></li>
+      <li id="logout"><a onclick="logout()" style="cursor: pointer;">Logout</a></li>
+      <li><a href="/loginVendor" class="under">vendorLogin</a></li>
+    </ul>
+  </div>
+
+  <div id="google_translate_element"></div>
+
+  <!-- States dropdown when menu icon is clicked -->
+  <div id="states-menu" class="states-menu">
+    <!--Add on on 06/12/2024-->
+    <ul>
+      <li>Andhra Pradesh</li>
+      <li>Arunachal Pradesh</li>
+      <li>Assam</li>
+      <li>Bihar</li>
+      <li>Chhattisgarh</li>
+      <li>Goa</li>
+      <li>Gujarat</li>
+      <li>Haryana</li>
+      <li>Himachal Pradesh</li>
+      <li>Jharkhand</li>
+      <li>Karnataka</li>
+      <li>Kerala</li>
+      <li>Madhya Pradesh</li>
+      <li>Maharashtra</li>
+      <li>Manipur</li>
+      <li>Meghalaya</li>
+      <li>Mizoram</li>
+      <li>Nagaland</li>
+      <li>Odisha</li>
+      <li>Punjab</li>
+      <li>Rajasthan</li>
+      <li>Sikkim</li>
+      <li>Tamil Nadu</li>
+      <li>Telangana</li>
+      <li>Tripura</li>
+      <li>Uttar Pradesh</li>
+      <li>Uttarakhand</li>
+      <li>West Bengal</li>
+    </ul>
+  </div>
+
+  <!--Add on on 06/12/2024-->
+  <script type="text/javascript">
+    // Function to initialize Google Translate
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+
+    // JavaScript to toggle the visibility of the states menu
+    document.getElementById('menu-icon').addEventListener('click', function() {
+      var statesMenu = document.getElementById('states-menu');
+      statesMenu.style.display = (statesMenu.style.display === 'block') ? 'none' : 'block';
+    });
+  </script>
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</header>

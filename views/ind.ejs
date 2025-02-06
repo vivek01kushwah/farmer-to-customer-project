@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+  <% if (records.length > 0) { %>
+  <%- include('./partials/header'); %>
+    <section class="trending-product" id="product" style="padding: 5%;">
+      
+        <div class="center-text">
+          <h3>Search Result for <span><%=searchTerm%></span></h3>
+        </div>
+        
+        <div class="products">
+          <% records.forEach(function(image) { %>
+          <div class="row">
+              <img src="data:image/<%=image.img.contentType%>;base64,
+              <%=image.img.data.toString('base64')%>">
+            <div class="product-text"><h5>Sale</h5></div>
+           
+            
+  
+            <div class="heart-icon"><i class="bx bx-heart heart" data-product-id="<%= image._id %>" onclick="addToWishlist('<%= image._id %>')"></i></div>
+            <div class="rating">
+              <i class="bx bx-star "></i><span> 5(233)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: end;">
+  
+              <div class="price">
+                  <h5 class="productNameForSearching"><%= image.productName %></h5>
+                <h5>Quantity : <%= image.productQuantity %></h5>
+                <p><i class="bx bx-rupee"></i><%= image.productCost %></p>
+              </div>
+              <div class="btn">
+                <button class="add-to-cart-button" cart-product-id="<%= image._id %>" onclick="addToCart('<%= image._id %>')">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+       
+      </section>
+      <% } else { %>
+        <style>
+          .emptyWishlist {
+            height: 100vh;
+            background-image: url("./css/search4.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+      
+          button {
+            padding: 5px 34px;
+            background-color: rgb(106 78 242);
+            /* Change this to your desired background color */
+            color: #fff;
+            /* Text color */
+            font-size: 16px;
+            border: none;
+            margin-top: 41%;
+          }
+       a {
+            color: white;
+          }
+        </style>
+        <div class="emptyWishlist">
+      
+      
+          <button><a href="/"> Try Searching for something else!!</a></button>
+      
+        </div>
+        <% } %>
+
+      <script src="/./js/ecommerce.js"></script>
+</body>
+</html>

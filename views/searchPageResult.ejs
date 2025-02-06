@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search Item</title>
+</head>
+<body>
+    <h1>Welcome to Search Items</h1>
+    <div>
+        <% records.forEach(function(item) { %>
+          <div>
+            <div class="column">
+              <img src="data:item/<%=item.img.contentType%>;base64,
+                         <%=item.img.data.toString('base64')%>">
+              <div class="productDescription">
+                <h5 class="productNameForSearching">
+                  <%= item.productName %>
+                </h5>
+                <p>Quantity : <%= item.productQuantity %>
+                </p>
+                <p>Cost : <%= item.productCost %>₹</p><br>
+    
+
+    
+                <p>id : <%= item._id %>
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+      <% }) %>
+        </div><br><br>
+    
+</body>
+</html> -->
+<!-- views/searchResults.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    <% if (products.length > 0) { %>
+        <ul>
+            <% products.forEach(product => { %>
+                <li><%= product.productName %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No results found for '<%= searchTerm %>'</p>
+    <% } %>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>

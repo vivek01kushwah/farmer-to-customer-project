@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="./css/loginVendor.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- code here -->
+    <div class="card">
+      <div class="card-image">
+        <h2 class="card-heading">
+          Get started
+          <small>Let us create your account</small>
+        </h2>
+      </div>
+      <form action="/loginVendor" method="post" name="loginVendorForm" onsubmit="return formVendorValidation()" class="card-form">
+        <div class="input">
+          <input type="text" class="input-field" name="email" id="email" required />
+          <label class="input-label">Email:</label>
+        </div>
+        <div class="input">
+          <input type="number" class="input-field" name="mobile" id="mobile" required />
+          <label class="input-label">Mobile:</label>
+        </div>
+        <div class="input">
+          <input type="password" class="input-field" name="password" id="password" required />
+          <label class="input-label">Password:</label>
+        </div>
+        <div class="action">
+          <button class="action-button" name="submit" id="btn">Login</button>
+        </div>
+      </form>
+      <div class="card-info">
+        <p><a href="/signUpVendor" id="link">New User Register</a></p>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script>
+  function formVendorValidation() {
+    let email = document.forms["loginVendorForm"]["email"].value;
+    sessionStorage.setItem('email', email);
+    if (email == "") {
+      alert("Enter the Email");
+      document.forms["loginVendorForm"]["email"].focus();
+      return false;
+    }
+    let password = document.forms["loginVendorForm"]["password"].value;
+    if (password == "") {
+      alert("Enter Password");
+      document.forms["loginVendorForm"]["password"].focus();
+      return false;
+    }
+    let mobile = document.forms["loginVendorForm"]["password"].value;
+    if (password == "") {
+      alert("Enter Password");
+      document.forms["loginVendorForm"]["password"].focus();
+      return false;
+    }
+  }
+</script>
+
+</html>
